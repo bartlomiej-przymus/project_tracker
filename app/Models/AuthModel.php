@@ -47,19 +47,19 @@ class AuthModel extends Model
 
     protected function passwordHash(array $data){
         if (!isset($data['data']['password'])){
-            $data['data']['password'] = password_hash($data['data']['password']. PASSWORD_DEFAULT);
+            $data['data']['password'] = password_hash($data['data']['password'], PASSWORD_DEFAULT);
         }
         return $data;
     }
 
     protected function beforeInsert(array $data){
-        $data = passwordHash($data);
+        $data = $this->passwordHash($data);
 
         return $data;
     }
 
     protected function beforeUpdate(array $data){
-        $data = passwordHash($data);
+        $data = $this->passwordHash($data);
 
         return $data;
     }

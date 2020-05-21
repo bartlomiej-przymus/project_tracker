@@ -11,6 +11,7 @@
                 <?php if (session()->get('success')): ?>
                     <div class="alert alert-success" role="alert">
                         <?php session()->get('success') ?>
+                        <p class="mb-0">Success! You have been registered!</p>
                     </div>    
                 <?php endif; ?>
                 <form class="" action="/" method="post">

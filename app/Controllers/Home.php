@@ -20,7 +20,8 @@ class Home extends BaseController
             'firstname' => $this->request->getVar('firstname'),
             'lastname'  => $this->request->getVar('lastname'),
             'email'     => $this->request->getVar('email'),
-            'password'  => $this->request->getVar('password')
+            'password'  => $this->request->getVar('password'),
+            'password_confirm'  => $this->request->getVar('password_confirm')
         ]; 
 
         helper(['form']);
@@ -34,14 +35,12 @@ class Home extends BaseController
                 //$errors = ['errors' => $model->errors()];
 
             }else{
-                $errors = [];
                 $model->save($data);
                 $session = session();
                 $session->setFlashdata('success', 'Successful Registration');
                 return redirect()->to('/');
             }
         }
-        
 
         echo view('templates/header');
         echo view('pages/register', ['errors' => $model->errors()]);
