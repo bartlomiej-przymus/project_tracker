@@ -49,8 +49,9 @@
                                     <p><?= $error ?></p>
                                 <?php endforeach ?>
                             </div>
-                        <?php endif ?>
                         </div>
+                        <?php endif ?>
+                        
                         <div class="col">
                             <button class="btn btn-dark" type="submit">Register</button>
                         </div>

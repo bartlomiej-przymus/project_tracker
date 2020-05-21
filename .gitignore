@@ -1,4 +1,4 @@
 vendor/
 .env
-writable/logs/
 *.log
+writable/

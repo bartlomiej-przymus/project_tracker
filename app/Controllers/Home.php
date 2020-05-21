@@ -16,6 +16,7 @@ class Home extends BaseController
     
     public function register()
     {
+        $errors = [];
         $data = [
             'firstname' => $this->request->getVar('firstname'),
             'lastname'  => $this->request->getVar('lastname'),
