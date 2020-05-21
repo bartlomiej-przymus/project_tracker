@@ -1,0 +1,21 @@
+CRITICAL - 2020-05-21 12:03:25 --> min.length is not a valid rule.
+#0 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Validation\Validation.php(302): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('min.length')
+#1 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Validation\Validation.php(189): CodeIgniter\Validation\Validation->processRules('password', 'password', 'Tomato7', Array, Array)
+#2 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Model.php(1443): CodeIgniter\Validation\Validation->run(Array, NULL, NULL)
+#3 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Model.php(701): CodeIgniter\Model->validate(Array)
+#4 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Model.php(557): CodeIgniter\Model->insert(Array, false)
+#5 C:\xampp\htdocs\project_tracker\app\Controllers\Home.php(31): CodeIgniter\Model->save(Array)
+#6 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\CodeIgniter.php(914): App\Controllers\Home->register()
+#7 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\project_tracker\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2020-05-21 12:04:20 --> Invalid file: register.php
+#0 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('register.php')
+#1 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Common.php(1087): CodeIgniter\View\View->render('register', Array, true)
+#2 C:\xampp\htdocs\project_tracker\app\Controllers\Home.php(32): view('register', Array)
+#3 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\CodeIgniter.php(914): App\Controllers\Home->register()
+#4 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\project_tracker\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
