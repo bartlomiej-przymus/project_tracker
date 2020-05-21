@@ -1,9 +1,0 @@
-CRITICAL - 2020-05-19 04:27:17 --> Call to undefined function set_value()
-#0 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\View\View.php(246): include()
-#1 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Common.php(1087): CodeIgniter\View\View->render('pages/login', Array, true)
-#2 C:\xampp\htdocs\project_tracker\app\Controllers\Home.php(11): view('pages/login', Array)
-#3 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\CodeIgniter.php(914): App\Controllers\Home->index()
-#4 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
-#5 C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#6 C:\xampp\htdocs\project_tracker\public\index.php(45): CodeIgniter\CodeIgniter->run()
-#7 {main}
