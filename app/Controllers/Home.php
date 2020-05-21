@@ -16,7 +16,6 @@ class Home extends BaseController
     
     public function register()
     {
-        $errors = [];
         $data = [
             'firstname' => $this->request->getVar('firstname'),
             'lastname'  => $this->request->getVar('lastname'),
@@ -30,18 +29,22 @@ class Home extends BaseController
 
         if ($this->request->getMethod() == 'post') {
             if ($model->save($data) === false){
+
                 //return view('pages/register', ['errors' => $model->errors()]);
-                $errors = ['errors' => $model->errors()];
+                //$errors = ['errors' => $model->errors()];
+
             }else{
+                $errors = [];
                 $model->save($data);
                 $session = session();
                 $session->setFlashdata('success', 'Successful Registration');
                 return redirect()->to('/');
             }
         }
+        
 
         echo view('templates/header');
-        echo view('pages/register', $errors);
+        echo view('pages/register', ['errors' => $model->errors()]);
         echo view('templates/footer');
 
     }
