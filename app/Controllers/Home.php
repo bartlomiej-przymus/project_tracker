@@ -47,4 +47,12 @@ class Home extends BaseController
         echo view('templates/footer');
 
     }
+
+    public function login()
+    {
+        $data = [
+            'email'     => $this->request->getVar('email'),
+            'password'  => $this->request->getVar('password'),
+        ];
+    }
 }
