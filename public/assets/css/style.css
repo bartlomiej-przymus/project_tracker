@@ -6,3 +6,7 @@ body{
     background-color: white;
     border-radius: 7px;
 }
+
+.navbar, footer{
+    border-radius: 4px;
+}
