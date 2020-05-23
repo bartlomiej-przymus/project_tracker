@@ -10,6 +10,7 @@
             <div class="container">
                 <h1 class="h3 mb-3 font-weight-normal">User Registration</h1>
                 <form class="" action="/register" method="post">
+                    <?= csrf_field() ?>
                     <div class="row">
                         <div class="col-12 col-sm-6">
                             <div class="form-group">

@@ -9,6 +9,7 @@ class Home extends BaseController
 
         helper(['form']);
 
+        //I will need to add here check if user is already logged in then redirect to projects page
         echo view('templates/header', $data);
         echo view('pages/login');
         echo view('templates/footer');
@@ -51,8 +52,44 @@ class Home extends BaseController
     public function login()
     {
         $data = [
-            'email'     => $this->request->getVar('email'),
-            'password'  => $this->request->getVar('password'),
-        ];
+            'email'     => $this->request->getPost('email'),
+            'password'  => $this->request->getPost('password')
+        ]; 
+
+        helper(['form']);
+
+        //I need to take data from login and compare it to stored user credentials
+        
+        if ($this->request->getMethod() == 'post') {
+
+            $rules = [
+                'email'     => 'required|max_length[30]|valid_email',
+                'password'  => 'required|max_length[255]|validateUser[email,password]'
+            ];
+
+            $errors = [
+                'password' => [
+                'validateUser'  => 'Ooops! Email or Password don\'t match'
+            ]];
+
+            if (!$this->validate($rules, $errors)) {
+
+                $data['errors'] = $this->validator->getErrors();
+
+            }else{
+
+                $model = new AuthModel();
+
+                $user = $model->where('email', $data['email'])->first();
+
+                //need to finish this
+
+            }
+        }
+
+        //I will need to add here check if user is already logged in then redirect to projects page
+        echo view('templates/header');
+        echo view('pages/login', $data);
+        echo view('templates/footer');
     }
 }

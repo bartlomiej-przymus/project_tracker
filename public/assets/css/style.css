@@ -1,15 +1,8 @@
-@media (min-width: 768px) {
-    .abs-center-x {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    }
-}
-
 body{
     background-color: #e1e1e1;
 }
 
 .form-wrapper {
     background-color: white;
+    border-radius: 7px;
 }

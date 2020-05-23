@@ -14,14 +14,15 @@
                         <p class="mb-0">Success! You have been registered!</p>
                     </div>    
                 <?php endif; ?>
-                <form class="" action="/" method="post">
+                <form class="" action="/login" method="post">
                     <div class="form-group">
+                    <?= csrf_field() ?>
                         <label for="inputEmail" class="sr-only">Email address</label>
-                        <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email address" value="<?php set_value('email') ?>" required autofocus>
+                        <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email address" value="<?php set_value('email') ?>" autofocus>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword" class="sr-only">Password</label>
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" value="" required>
                     </div>
                     <div class="checkbox mb-3">
                         <label>
@@ -29,6 +30,15 @@
                         </label>
                     </div>
                     <div class="row row-cols-2 align-items-center">
+                        <?php if (! empty($errors)) : ?>
+                        <div class="col-12">
+                            <div class="alert alert-danger">
+                                <?php foreach ($errors as $field => $error) : ?>
+                                    <p class="mb-0"><?= $error ?></p>
+                                <?php endforeach ?>
+                            </div>
+                        </div>
+                        <?php endif ?>
                         <div class="col-4">
                             <button class="btn btn-dark" type="submit">Log in</button>
                         </div>
