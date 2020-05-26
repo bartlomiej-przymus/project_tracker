@@ -57,8 +57,6 @@ class Auth extends BaseController
         ]; 
 
         helper(['form']);
-
-        //I need to take data from login and compare it to stored user credentials
         
         if ($this->request->getMethod() == 'post') {
 
@@ -80,16 +78,32 @@ class Auth extends BaseController
 
                 $model = new AuthModel();
 
-                $user = $model->where('email', $data['email'])->first();
+                $user = $model->model('email', $this->request->getVar('email'))->first();
 
-                //need to finish this
+                $this->setUserStatus($user);
+
+                return redirect()->to('home');
 
             }
         }
 
-        //I will need to add here check if user is already logged in then redirect to projects page
         echo view('templates/header');
         echo view('pages/login', $data);
         echo view('templates/footer');
+    }
+
+    private function setUserStatus($user)
+    {
+        $data = [
+            'id'            => $user['id'],
+            'firstNane'     => $user['firstname'],
+            'lastname'      => $user['lastname'],
+            'email'         => $user['id'],
+            'isLoggedIn'    => true
+        ];
+
+        session()->set($data);
+
+        return true;
     }
 }
