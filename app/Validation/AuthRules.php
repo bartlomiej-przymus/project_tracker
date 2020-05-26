@@ -6,7 +6,7 @@ use App\Models\AuthModel;
 
 // following class checks first if user exist for given email address if user found it checks password
 
-class UserRules
+class AuthRules
 {
     public function validateUser(string $str, string $fields, array $data)
     {
