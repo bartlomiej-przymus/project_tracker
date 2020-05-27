@@ -33,6 +33,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Auth::index');
 $routes->match(['get','post'], 'login', 'Auth::login');
 $routes->match(['get','post'], 'register', 'Auth::register');
+$routes->post('logout', 'Auth::logout');
 //$routes->get('(:any)', 'Pages::view/$1');
 
 /**

@@ -11,9 +11,9 @@
                 function currentTime() {
                     let dateNow = new Date();
                     const options = {
-                        weekday: 'long',
+                        weekday: 'short',
                         year: 'numeric',
-                        month: 'long',
+                        month: 'short',
                         day: 'numeric'
                     };
                     let day = dateNow.toLocaleDateString(undefined, options);
@@ -24,15 +24,15 @@
         </head>
         <body>
             <div class="container"> <!--this is main container-->
-            <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-                <div class="container">
-                    <div class="col-3 col-md-4">
-                            <a class="navbar-brand text-wrap" href="/">Project Tracker</a>
-                        </div>
-                        <div class="col-9 col-md-8 text-right">
-                            <div class="navbar-text text-white-50">
-                                <span id="current_time"></span>
+                <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+                    <div class="container">
+                        <div class="col-3 col-md-4">
+                                <a class="navbar-brand text-wrap" href="/">Project Tracker</a>
                             </div>
-                        </div>
-                </div>
-            </nav>
+                            <div class="col-9 col-md-8 text-right">
+                                <div class="navbar-text text-white-50">
+                                    <span id="current_time"></span>
+                                </div>
+                            </div>
+                    </div>
+                </nav>        

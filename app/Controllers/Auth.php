@@ -78,7 +78,7 @@ class Auth extends BaseController
 
                 $model = new AuthModel();
 
-                $user = $model->model('email', $this->request->getVar('email'))->first();
+                $user = $model->where('email', $this->request->getVar('email'))->first();
 
                 $this->setUserStatus($user);
 
@@ -96,14 +96,20 @@ class Auth extends BaseController
     {
         $data = [
             'id'            => $user['id'],
-            'firstNane'     => $user['firstname'],
+            'firstname'     => $user['firstname'],
             'lastname'      => $user['lastname'],
-            'email'         => $user['id'],
+            'email'         => $user['email'],
             'isLoggedIn'    => true
         ];
 
         session()->set($data);
 
         return true;
+    }
+
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('/login');
     }
 }
