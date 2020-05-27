@@ -34,6 +34,7 @@ $routes->get('/', 'Auth::index');
 $routes->match(['get','post'], 'login', 'Auth::login');
 $routes->match(['get','post'], 'register', 'Auth::register');
 $routes->post('logout', 'Auth::logout');
+$routes->match(['get','post'], 'settings', 'Settings::index');
 //$routes->get('(:any)', 'Pages::view/$1');
 
 /**
