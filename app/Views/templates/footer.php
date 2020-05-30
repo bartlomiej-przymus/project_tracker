@@ -2,7 +2,7 @@
             <footer class="footer mt-auto py-3 bg-dark">
                 <div class="container">
                     <div class="row justify-content-center">
-                        <span class="h6 text-muted font-weight-lighter"><em>Copyright &copy; 2020 Bartlomiej Przymus</em></span>
+                        <span class="h6 text-muted font-weight-lighter"><em>Made with &hearts; by Bartlomiej Przymus</em></span>
                     </div>
                 </div>
             </footer>

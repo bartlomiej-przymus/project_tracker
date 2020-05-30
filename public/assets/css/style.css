@@ -10,3 +10,18 @@ body{
 .navbar, footer{
     border-radius: 4px;
 }
+
+.add_group{
+    margin:0;
+    display: block;
+    border-radius: 4px;
+    box-shadow: none;
+    border-style: dotted;
+    border-color: darkgray;
+    width: 100%;
+    min-height: 180px;
+    color: darkgray;
+    font-weight: bold;
+    font-size: x-large;
+    background-color: #e9ecef
+}

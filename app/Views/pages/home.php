@@ -17,10 +17,18 @@
         </div>
     </div>
 </nav>
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h1>Hello, <?= session()->get('firstname') ?></h1>
+
+    <div class="row justify-content-between">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
+            <button class="add_group" type="submit"><h1>+</h1>Add Project<br>Group</button>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
+            <button class="add_group" type="submit">+<br>Add Project<br>Group</button>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
+            <button class="add_group" type="submit">+<br>Add Project<br>Group</button>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
+            <button class="add_group" type="submit">+<br>Add Project<br>Group</button>
         </div>
     </div>
-</div>
