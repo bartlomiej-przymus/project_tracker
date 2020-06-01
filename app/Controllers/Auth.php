@@ -32,8 +32,7 @@ class Auth extends BaseController
         if ($this->request->getMethod() == 'post') {
             if ($model->save($data) === false){
 
-                //return view('pages/register', ['errors' => $model->errors()]);
-                //$errors = ['errors' => $model->errors()];
+                //carries on to echo statements below
 
             }else{
                 $model->save($data);
@@ -112,4 +111,5 @@ class Auth extends BaseController
         session()->destroy();
         return redirect()->to('/login');
     }
+
 }
