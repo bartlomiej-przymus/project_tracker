@@ -7,6 +7,7 @@
         </div>
         <div class="col-auto d-flex flex-nowrap">
             <form action="settings" class="mt-1">
+                <?= csrf_field() ?>
                 <button class="btn btn-outline-dark pt-1 pb-2 mr-2" type="submit"><i data-feather="settings"></i></button>
             </form>
             <form class="float-right mt-1" action="/logout" method="post">
