@@ -10,7 +10,7 @@
                 <?= csrf_field() ?>
                 <button class="btn btn-outline-dark pt-1 pb-2 mr-2" type="submit"><i data-feather="settings"></i></button>
             </form>
-            <form class="float-right mt-1" action="/logout" method="post">
+            <form class="float-right mt-1" action="logout" method="post">
                 <?= csrf_field() ?>
                 <button class="btn btn-outline-dark" type="submit">Logout</button>
             </form>

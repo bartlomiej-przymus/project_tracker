@@ -42,10 +42,8 @@ class Settings extends BaseController
             'email'       => $session->email,
         ];
 
-        $session = session();
-
         $updateData = [
-            'id'        => session()->get('id'),
+            'id'        => $session->id,
             'firstname' => $this->request->getVar('firstname'),
             'lastname'  => $this->request->getVar('lastname')
         ];
@@ -67,7 +65,7 @@ class Settings extends BaseController
 
                 $session->setFlashdata('update', 'User details successfuly updated');
 
-                return redirect()->to('home/settings');
+                return redirect()->to('settings');
             
             }
         

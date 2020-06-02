@@ -2,12 +2,12 @@
     <div class="row">
         <div class="col mr-0">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/home">Back</a></li>
+                <li class="breadcrumb-item"><a href="home">Back</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Settings</li>
             </ol>
         </div>
         <div class="col-auto d-flex flex-nowrap">
-            <form class="float-right mt-1" action="/logout" method="post">
+            <form class="float-right mt-1" action="logout" method="post">
                 <?= csrf_field() ?>
                 <button class="btn btn-outline-dark" type="submit">Logout</button>
             </form>
@@ -16,7 +16,7 @@
 </nav>
 <div class="card border-dark text-center mb-3">
     <div class="card-header bg-dark">
-        <a class="close text-light float-right" href="/home">&times;</a>
+        <a class="close text-light float-right" href="home">&times;</a>
         <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
                 <a class="nav-link active" href="#">Account</a>
@@ -40,7 +40,7 @@
                         <p class="mb-0">Success! Your details have been succesfully updated!</p>
                     </div>    
                 <?php endif; ?>
-                <form class="" action="/settings" method="post">
+                <form class="" action="settings" method="post">
                     <?= csrf_field() ?>
                     <div class="row">
                         <div class="col-12 col-sm-6">
