@@ -28,6 +28,7 @@
                         <label>
                             <input type="checkbox" value="remember-me"> Remember me
                         </label>
+                        <a href="recovery" class="float-right text-danger">Forgot password</a>
                     </div>
                     <div class="row row-cols-2 align-items-center">
                         <?php if (! empty($errors)) : ?>

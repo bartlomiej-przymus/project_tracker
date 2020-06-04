@@ -112,4 +112,45 @@ class Auth extends BaseController
         return redirect()->to('login');
     }
 
+    public function recovery()
+    {
+        $data = [
+            'email'     => $this->request->getPost('email'),
+        ]; 
+
+        helper(['form']);
+
+        if($this->request->getMethod() == 'post'){
+        
+            $rules = [
+                'email'     => 'required|max_length[30]|valid_email',
+            ];
+
+            if (!$this->validate($rules)) {
+
+                $data['errors'] = $this->validator->getErrors();
+
+            }else{
+
+                $model = new AuthModel();
+
+                $session = session();
+
+                $session->setFlashdata('reset', 'Email with reset link will be sent to you if email exists on our system.');
+
+                $user = $model->where('email', $this->request->getVar('email'))->first();
+
+                if(!empty($user)){
+                    //send reset email to user -- to do
+                }
+
+            }
+
+        }
+
+        echo view('templates/header');
+        echo view('pages/recovery', $data);
+        echo view('templates/footer');
+    }
+
 }

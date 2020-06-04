@@ -6,10 +6,9 @@
             </ol>
         </div>
         <div class="col-auto d-flex flex-nowrap">
-            <form action="settings" class="mt-1">
-                <?= csrf_field() ?>
-                <button class="btn btn-outline-dark pt-1 pb-2 mr-2" type="submit"><i data-feather="settings"></i></button>
-            </form>
+            
+                <a class="btn btn-outline-dark mt-1 mr-2 mb-4" href="settings"><i class="mb-1" data-feather="settings"></i></a>
+
             <form class="float-right mt-1" action="logout" method="post">
                 <?= csrf_field() ?>
                 <button class="btn btn-outline-dark" type="submit">Logout</button>

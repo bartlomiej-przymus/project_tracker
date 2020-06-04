@@ -6,6 +6,12 @@ class AuthModel extends Model
 {
     protected $table = 'users';
 
+    protected $useTimestamps = true;
+
+    protected $createdField  = 'created_at';
+    
+    protected $updatedField  = 'updated_at';
+
     protected $allowedFields = ['firstname', 'lastname', 'email', 'password', 'updated_at'];
 
     protected $beforeInsert = ['beforeInsert'];

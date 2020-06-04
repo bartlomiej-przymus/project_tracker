@@ -37,7 +37,8 @@ $routes->match(['get','post'], 'register', 'Auth::register', ['filter' => 'noaut
 $routes->post('logout', 'Auth::logout');
 $routes->get('settings', 'Settings::index', ['filter' => 'auth']);
 $routes->post('settings', 'Settings::update', ['filter' => 'auth']);
-$routes->get('(:any)', 'Auth::login');
+$routes->match(['get','post'], 'recovery', 'Auth::recovery', ['filter' => 'noauth']);
+$routes->get('/pages/(:any)', 'Auth::login');
 //$routes->get('(:any)', 'Pages::view/$1');
 
 /**
