@@ -8,10 +8,11 @@
         <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-4 pt-3 pb-3 mb-5 bg-white form-wrapper">
             <div class="container">
                 <h1 class="h3 mb-3 font-weight-normal">Password Reset</h1>
+                <p>Please enter email address you have used to create login credentials.</p>
                 <?php if (session()->get('reset')): ?>
                     <div class="alert alert-success" role="alert">
                         <?php session()->get('reset') ?>
-                        <p class="mb-0">Email with reset link will be sent to you if email exists on our system.</p>
+                        <p class="mb-0">Email with reset link will be sent to you if it exists on our system.</p>
                     </div>    
                 <?php endif; ?>
                 <form action="recovery" method="post">

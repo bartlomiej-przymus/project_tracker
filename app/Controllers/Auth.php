@@ -142,6 +142,7 @@ class Auth extends BaseController
 
                 if(!empty($user)){
                     //send reset email to user -- to do
+                    $this->sendReset($user['email'], '123456');
                 }
 
             }
@@ -151,6 +152,18 @@ class Auth extends BaseController
         echo view('templates/header');
         echo view('pages/recovery', $data);
         echo view('templates/footer');
+    }
+
+    private function sendReset($recipientEmail, $token)
+    {
+        $email = \Config\Services::email();
+        $email->setFrom('admin@projectracker.com');
+        $email->setTo($recipientEmail);
+        //$email->setBCC('admin@yourdomain.com');
+        $email->SetSubject('Project Tracker - Password Reset Link');
+        $link = site_url('reset/'.$token);
+        $email->setMessage('Please click on password reset link below to reset your password/n <a href="'.$link.'">Reset Link</a>');
+        $email->send();
     }
 
 }
