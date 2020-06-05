@@ -1,6 +1,7 @@
 <?php namespace App\Controllers;
 
 use App\Models\AuthModel;
+use CodeIgniter\I18n\Time;
 
 class Auth extends BaseController
 {
@@ -114,9 +115,7 @@ class Auth extends BaseController
 
     public function recovery()
     {
-        $data = [
-            'email'     => $this->request->getPost('email'),
-        ]; 
+        $data = []; 
 
         helper(['form']);
 
@@ -141,8 +140,24 @@ class Auth extends BaseController
                 $user = $model->where('email', $this->request->getVar('email'))->first();
 
                 if(!empty($user)){
-                    //send reset email to user -- to do
-                    $this->sendReset($user['email'], '123456');
+
+                    $data['id'] = $user['id'];
+                    
+                    $token = openssl_random_pseudo_bytes(16);
+
+                    $token = bin2hex($token);
+
+                    $hashedToken = password_hash($token, PASSWORD_DEFAULT);
+
+                    $data['token'] = $hashedToken;
+
+                    $format = 'Y-m-d H:i:s';
+                    
+                    $data['reset_at'] = date($format);
+
+                    $model->save($data);
+
+                    $this->sendReset($user['email'], $user['id'], $token);
                 }
 
             }
@@ -150,20 +165,37 @@ class Auth extends BaseController
         }
 
         echo view('templates/header');
-        echo view('pages/recovery', $data);
+        echo view('pages/recovery');
         echo view('templates/footer');
     }
 
-    private function sendReset($recipientEmail, $token)
+    public function reset($id, $tokenReceived)
+    {
+        $model = new AuthModel();
+
+        $user = $model->where('id', $id)->first();
+
+        if($this->request->getMethod() == 'get')
+            echo $tokenReceived;
+        if(password_verify($tokenReceived, $user['token'])){
+            echo 'token match';
+        }else{
+            echo 'token don\'t match';
+        }
+    
+    }
+
+    private function sendReset($recipientEmail, $id, $token)
     {
         $email = \Config\Services::email();
         $email->setFrom('admin@projectracker.com');
         $email->setTo($recipientEmail);
         //$email->setBCC('admin@yourdomain.com');
         $email->SetSubject('Project Tracker - Password Reset Link');
-        $link = site_url('reset/'.$token);
-        $email->setMessage('Please click on password reset link below to reset your password/n <a href="'.$link.'">Reset Link</a>');
-        $email->send();
+        $link = site_url('reset/'.$id.'/'.$token);
+        //$email->setMessage('Please click on password reset link below to reset your password/n <a href="'.$link.'">Reset Link</a>');
+        //$email->send();
+        echo 'Please click on password reset link below to reset your password <br> <a href="'.$link.'">Reset Link</a>';
     }
 
 }

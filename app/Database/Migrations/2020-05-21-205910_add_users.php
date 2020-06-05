@@ -20,11 +20,15 @@ class AddUsers extends Migration
                 'type'           => 'VARCHAR',
                 'constraint'     => '50',
              ],
-             'email'       => [
+            'email'       => [
                 'type'           => 'VARCHAR',
                 'constraint'     => '50',
                ],
-               'password'       => [
+            'password'       => [
+                'type'           => 'VARCHAR',
+                'constraint'     => '255',
+            ],
+            'token'       => [
                 'type'           => 'VARCHAR',
                 'constraint'     => '255',
             ],
@@ -33,6 +37,10 @@ class AddUsers extends Migration
                 // 'default'        => 'current_timestamp()',
             ],
             'updated_at'       => [
+                'type'           => 'DATETIME',
+                // 'default'        => 'current_timestamp()',
+            ],
+            'reset_at'       => [
                 'type'           => 'DATETIME',
                 // 'default'        => 'current_timestamp()',
             ]
