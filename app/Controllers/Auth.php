@@ -1,18 +1,21 @@
 <?php namespace App\Controllers;
 
 use App\Models\AuthModel;
+
 use CodeIgniter\I18n\Time;
 
 class Auth extends BaseController
 {
-	public function index() {
+    public function index()
+    {
 	    $data = []; 
 
         helper(['form']);
 
-        //I will need to add here check if user is already logged in then redirect to projects page
         echo view('templates/header', $data);
+
         echo view('pages/login');
+
         echo view('templates/footer');
     }
     
@@ -20,9 +23,13 @@ class Auth extends BaseController
     {
         $data = [
             'firstname' => $this->request->getVar('firstname'),
+
             'lastname'  => $this->request->getVar('lastname'),
+            
             'email'     => $this->request->getVar('email'),
+
             'password'  => $this->request->getVar('password'),
+
             'password_confirm'  => $this->request->getVar('password_confirm')
         ]; 
 
@@ -30,48 +37,54 @@ class Auth extends BaseController
 
         $model = new AuthModel();
 
-        if ($this->request->getMethod() == 'post') {
-            if ($model->save($data) === false){
-
-                //carries on to echo statements below
-
-            }else{
+        if ($this->request->getMethod() == 'post')
+        {
+            if ($model->save($data) === true)
+            {
                 $model->save($data);
+
                 $session = session();
+
                 $session->setFlashdata('success', 'Successful Registration');
+
                 return redirect()->to('/');
             }
         }
 
         echo view('templates/header');
-        echo view('pages/register', ['errors' => $model->errors()]);
-        echo view('templates/footer');
 
+        echo view('pages/register', ['errors' => $model->errors()]);
+
+        echo view('templates/footer');
     }
 
     public function login()
     {
         $data = [
             'email'     => $this->request->getPost('email'),
+
             'password'  => $this->request->getPost('password')
         ]; 
 
         helper(['form']);
         
-        if ($this->request->getMethod() == 'post') {
-
+        if ($this->request->getMethod() == 'post')
+        {
             $rules = [
                 'email'     => 'required|max_length[30]|valid_email',
+
                 'password'  => 'required|max_length[255]|validateUser[email,password]'
             ];
 
             $errors = [
                 'password' => [
-                'validateUser'  => 'Ooops! Email or Password don\'t match'
-            ]];
 
-            if (!$this->validate($rules, $errors)) {
+                    'validateUser'  => 'Ooops! Email or Password don\'t match'
+                ]
+            ];
 
+            if (!$this->validate($rules, $errors))
+            {
                 $data['errors'] = $this->validator->getErrors();
 
             }else{
@@ -83,12 +96,13 @@ class Auth extends BaseController
                 $this->setUserStatus($user);
 
                 return redirect()->to('home');
-
             }
         }
 
         echo view('templates/header');
-        echo view('pages/login', $data);
+
+        echo view('pages/login');
+
         echo view('templates/footer');
     }
 
@@ -96,9 +110,13 @@ class Auth extends BaseController
     {
         $data = [
             'id'            => $user['id'],
+
             'firstname'     => $user['firstname'],
+
             'lastname'      => $user['lastname'],
+
             'email'         => $user['email'],
+
             'isLoggedIn'    => true
         ];
 
@@ -110,6 +128,7 @@ class Auth extends BaseController
     public function logout()
     {
         session()->destroy();
+
         return redirect()->to('login');
     }
 
@@ -122,11 +141,13 @@ class Auth extends BaseController
         if($this->request->getMethod() == 'post'){
         
             $rules = [
+
                 'email'     => 'required|max_length[30]|valid_email',
+
             ];
 
-            if (!$this->validate($rules)) {
-
+            if (!$this->validate($rules))
+            {
                 $data['errors'] = $this->validator->getErrors();
 
             }else{
@@ -139,8 +160,8 @@ class Auth extends BaseController
 
                 $user = $model->where('email', $this->request->getVar('email'))->first();
 
-                if(!empty($user)){
-
+                if(!empty($user))
+                {
                     $data['id'] = $user['id'];
                     
                     $token = openssl_random_pseudo_bytes(16);
@@ -159,13 +180,13 @@ class Auth extends BaseController
 
                     $this->sendReset($user['email'], $user['id'], $token);
                 }
-
             }
-
         }
 
         echo view('templates/header');
+
         echo view('pages/recovery');
+
         echo view('templates/footer');
     }
 
@@ -176,10 +197,15 @@ class Auth extends BaseController
         $user = $model->where('id', $id)->first();
 
         if($this->request->getMethod() == 'get')
+
             echo $tokenReceived;
-        if(password_verify($tokenReceived, $user['token'])){
+
+        if(password_verify($tokenReceived, $user['token']))
+        {
             echo 'token match';
+
         }else{
+
             echo 'token don\'t match';
         }
     
@@ -188,14 +214,21 @@ class Auth extends BaseController
     private function sendReset($recipientEmail, $id, $token)
     {
         $email = \Config\Services::email();
+
         $email->setFrom('admin@projectracker.com');
+
         $email->setTo($recipientEmail);
+
         //$email->setBCC('admin@yourdomain.com');
+
         $email->SetSubject('Project Tracker - Password Reset Link');
+
         $link = site_url('reset/'.$id.'/'.$token);
+
         //$email->setMessage('Please click on password reset link below to reset your password/n <a href="'.$link.'">Reset Link</a>');
+
         //$email->send();
+
         echo 'Please click on password reset link below to reset your password <br> <a href="'.$link.'">Reset Link</a>';
     }
-
 }

@@ -4,13 +4,14 @@
 
 class Name extends BaseController
 {
-	public function index() {
-
+    public function index()
+    {
         $data = [];
 
         echo view('templates/header', $data);
-        echo view('pages/name');
-        echo view('templates/footer');
 
+        echo view('pages/name');
+
+        echo view('templates/footer');
     }
 }

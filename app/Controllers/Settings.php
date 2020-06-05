@@ -4,8 +4,8 @@ use App\Models\AuthModel;
 
 class Settings extends BaseController
 {
-	public function index() {
-
+    public function index()
+    {
         $model = new AuthModel();
 
         $session = session();
@@ -16,14 +16,17 @@ class Settings extends BaseController
 
         $data = [
             'firstname'   => $user['firstname'],
+
             'lastname'    => $user['lastname'],
+
             'email'       => $session->email,
         ];
 
         echo view('templates/header', $data);
-        echo view('pages/settings');
-        echo view('templates/footer');
 
+        echo view('pages/settings');
+
+        echo view('templates/footer');
     }
 
     public function update()
@@ -38,41 +41,45 @@ class Settings extends BaseController
 
         $data = [
             'firstname'   => $user['firstname'],
+
             'lastname'    => $user['lastname'],
+
             'email'       => $session->email,
         ];
 
         $updateData = [
             'id'        => $session->id,
+
             'firstname' => $this->request->getVar('firstname'),
+
             'lastname'  => $this->request->getVar('lastname')
         ];
 
-        if($this->request->getPost('password') != ''){
+        if($this->request->getPost('password') != '')
+        {
             $updateData['password'] = $this->request->getPost('password');
+
             $updateData['password_confirm'] = $this->request->getPost('password_confirm');
         }
 
         helper(['form']);
         
-        if ($this->request->getMethod() == 'post') {
-
-            if ($model->save($updateData) === false){
-
-            } else {
-                
+        if ($this->request->getMethod() == 'post')
+        {
+            if ($model->save($updateData) === true)
+            {
                 $model->save($updateData);
 
                 $session->setFlashdata('update', 'User details successfuly updated');
 
                 return redirect()->to('settings');
-            
             }
         
             echo view('templates/header', $data);
+
             echo view('pages/settings', ['errors' => $model->errors()]);
+
             echo view('templates/footer');
         }
-
     }
 }

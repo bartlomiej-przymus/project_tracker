@@ -9,6 +9,7 @@ class Noauth implements FilterInterface
     public function before(RequestInterface $request)
     {
         if(session()->isLoggedIn)
+        
         return redirect()->to('home');
     }
 
