@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="5" assertions="3" errors="2" warnings="0" failures="1" skipped="0" time="0.831512">
+    <testsuite name="app" tests="5" assertions="3" errors="2" warnings="0" failures="1" skipped="0" time="0.831512">
+      <testsuite name="ExampleDatabaseTest" file="C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php" tests="2" assertions="0" errors="2" warnings="0" failures="0" skipped="0" time="0.669489">
+        <testcase name="testModelFindAll" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" file="C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php" line="14" assertions="0" time="0.665662">
+          <error type="Error">ExampleDatabaseTest::testModelFindAll
+Error: Class 'SQLite3' not found
+
+C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Database\SQLite3\Connection.php:89
+C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Database\BaseConnection.php:377
+C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Test\CIDatabaseTestCase.php:134
+C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Test\CIDatabaseTestCase.php:166
+C:\xampp\htdocs\project_tracker\tests\_support\DatabaseTestCase.php:40
+C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php:9
+</error>
+        </testcase>
+        <testcase name="testSoftDeleteLeavesRow" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" file="C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php" line="25" assertions="0" time="0.003827">
+          <error type="Error">ExampleDatabaseTest::testSoftDeleteLeavesRow
+Error: Class 'SQLite3' not found
+
+C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Database\SQLite3\Connection.php:89
+C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Database\BaseConnection.php:377
+C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Test\CIDatabaseTestCase.php:134
+C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Test\CIDatabaseTestCase.php:166
+C:\xampp\htdocs\project_tracker\tests\_support\DatabaseTestCase.php:40
+C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php:9
+</error>
+        </testcase>
+      </testsuite>
+      <testsuite name="ExampleSessionTest" file="C:\xampp\htdocs\project_tracker\tests\session\ExampleSessionTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.138377">
+        <testcase name="testSessionSimple" class="ExampleSessionTest" classname="ExampleSessionTest" file="C:\xampp\htdocs\project_tracker\tests\session\ExampleSessionTest.php" line="10" assertions="1" time="0.138377"/>
+      </testsuite>
+      <testsuite name="HealthTest" file="C:\xampp\htdocs\project_tracker\tests\unit\HealthTest.php" tests="2" assertions="2" errors="0" warnings="0" failures="1" skipped="0" time="0.023647">
+        <testcase name="testIsDefinedAppPath" class="HealthTest" classname="HealthTest" file="C:\xampp\htdocs\project_tracker\tests\unit\HealthTest.php" line="10" assertions="1" time="0.003970"/>
+        <testcase name="testBaseUrlHasBeenSet" class="HealthTest" classname="HealthTest" file="C:\xampp\htdocs\project_tracker\tests\unit\HealthTest.php" line="17" assertions="1" time="0.019677">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">HealthTest::testBaseUrlHasBeenSet
+Failed asserting that false is true.
+
+C:\xampp\htdocs\project_tracker\tests\unit\HealthTest.php:31
+</failure>
+        </testcase>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
