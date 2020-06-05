@@ -39,8 +39,11 @@ final class IterableType extends Type
         }
 
         if ($other instanceof ObjectType) {
+            $className = $other->className()->qualifiedName();
+            \assert(\class_exists($className));
+
             try {
-                return (new \ReflectionClass($other->className()->getQualifiedName()))->isIterable();
+                return (new \ReflectionClass($className))->isIterable();
                 // @codeCoverageIgnoreStart
             } catch (\ReflectionException $e) {
                 throw new RuntimeException(
@@ -55,9 +58,9 @@ final class IterableType extends Type
         return false;
     }
 
-    public function getReturnTypeDeclaration(): string
+    public function name(): string
     {
-        return ': ' . ($this->allowsNull ? '?' : '') . 'iterable';
+        return 'iterable';
     }
 
     public function allowsNull(): bool

@@ -9,9 +9,6 @@
  */
 namespace PHPUnit\Framework;
 
-use AssertionError;
-use Countable;
-use Error;
 use PHPUnit\Framework\MockObject\Exception as MockObjectException;
 use PHPUnit\Util\Blacklist;
 use PHPUnit\Util\ErrorHandler;
@@ -20,18 +17,16 @@ use PHPUnit\Util\Test as TestUtil;
 use SebastianBergmann\CodeCoverage\CodeCoverage;
 use SebastianBergmann\CodeCoverage\CoveredCodeNotExecutedException as OriginalCoveredCodeNotExecutedException;
 use SebastianBergmann\CodeCoverage\Exception as OriginalCodeCoverageException;
-use SebastianBergmann\CodeCoverage\MissingCoversAnnotationException as OriginalMissingCoversAnnotationException;
 use SebastianBergmann\CodeCoverage\UnintentionallyCoveredCodeException;
 use SebastianBergmann\Invoker\Invoker;
 use SebastianBergmann\Invoker\TimeoutException;
 use SebastianBergmann\ResourceOperations\ResourceOperations;
 use SebastianBergmann\Timer\Timer;
-use Throwable;
 
 /**
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
-final class TestResult implements Countable
+final class TestResult implements \Countable
 {
     /**
      * @var array
@@ -163,6 +158,11 @@ final class TestResult implements Countable
     private $enforceTimeLimit = false;
 
     /**
+     * @var bool
+     */
+    private $forceCoversAnnotation = false;
+
+    /**
      * @var int
      */
     private $timeoutForSmallTests = 1;
@@ -259,7 +259,7 @@ final class TestResult implements Countable
     /**
      * Adds an error to the list of errors.
      */
-    public function addError(Test $test, Throwable $t, float $time): void
+    public function addError(Test $test, \Throwable $t, float $time): void
     {
         if ($t instanceof RiskyTestError) {
             $this->risky[] = new TestFailure($test, $t);
@@ -296,7 +296,7 @@ final class TestResult implements Countable
         }
 
         // @see https://github.com/sebastianbergmann/phpunit/issues/1953
-        if ($t instanceof Error) {
+        if ($t instanceof \Error) {
             $t = new ExceptionWrapper($t);
         }
 
@@ -444,7 +444,7 @@ final class TestResult implements Countable
      */
     public function allHarmless(): bool
     {
-        return $this->riskyCount() == 0;
+        return $this->riskyCount() === 0;
     }
 
     /**
@@ -460,7 +460,7 @@ final class TestResult implements Countable
      */
     public function allCompletelyImplemented(): bool
     {
-        return $this->notImplementedCount() == 0;
+        return $this->notImplementedCount() === 0;
     }
 
     /**
@@ -496,7 +496,7 @@ final class TestResult implements Countable
      */
     public function noneSkipped(): bool
     {
-        return $this->skippedCount() == 0;
+        return $this->skippedCount() === 0;
     }
 
     /**
@@ -600,7 +600,6 @@ final class TestResult implements Countable
      *
      * @throws CodeCoverageException
      * @throws OriginalCoveredCodeNotExecutedException
-     * @throws OriginalMissingCoversAnnotationException
      * @throws UnintentionallyCoveredCodeException
      * @throws \SebastianBergmann\CodeCoverage\InvalidArgumentException
      * @throws \SebastianBergmann\CodeCoverage\RuntimeException
@@ -648,7 +647,7 @@ final class TestResult implements Countable
 
         $monitorFunctions = $this->beStrictAboutResourceUsageDuringSmallTests &&
             !$test instanceof WarningTestCase &&
-            $test->getSize() == \PHPUnit\Util\Test::SMALL &&
+            $test->getSize() === \PHPUnit\Util\Test::SMALL &&
             \function_exists('xdebug_start_function_monitor');
 
         if ($monitorFunctions) {
@@ -656,13 +655,16 @@ final class TestResult implements Countable
             \xdebug_start_function_monitor(ResourceOperations::getFunctions());
         }
 
-        Timer::start();
+        $timer = new Timer;
+        $timer->start();
 
         try {
+            $invoker = new Invoker;
+
             if (!$test instanceof WarningTestCase &&
                 $this->enforceTimeLimit &&
                 ($this->defaultTimeLimit || $test->getSize() != \PHPUnit\Util\Test::UNKNOWN) &&
-                \extension_loaded('pcntl') && \class_exists(Invoker::class)) {
+                $invoker->canInvokeWithTimeout()) {
                 switch ($test->getSize()) {
                     case \PHPUnit\Util\Test::SMALL:
                         $_timeout = $this->timeoutForSmallTests;
@@ -685,7 +687,6 @@ final class TestResult implements Countable
                         break;
                 }
 
-                $invoker = new Invoker;
                 $invoker->invoke([$test, 'runBare'], [], $_timeout);
             } else {
                 $test->runBare();
@@ -716,7 +717,7 @@ final class TestResult implements Countable
             } elseif ($e instanceof SkippedTestError) {
                 $skipped = true;
             }
-        } catch (AssertionError $e) {
+        } catch (\AssertionError $e) {
             $test->addToAssertionCount(1);
 
             $failure = true;
@@ -734,12 +735,13 @@ final class TestResult implements Countable
             $warning = true;
         } catch (Exception $e) {
             $error = true;
-        } catch (Throwable $e) {
+        } catch (\Throwable $e) {
             $e     = new ExceptionWrapper($e);
             $error = true;
         }
 
-        $time = Timer::stop();
+        $time = $timer->stop()->asSeconds();
+
         $test->addToAssertionCount(Assert::getCount());
 
         if ($monitorFunctions) {
@@ -770,8 +772,27 @@ final class TestResult implements Countable
         }
 
         if ($this->beStrictAboutTestsThatDoNotTestAnything &&
-            $test->getNumAssertions() == 0) {
+            $test->getNumAssertions() === 0) {
             $risky = true;
+        }
+
+        if ($this->forceCoversAnnotation && !$incomplete && !$skipped) {
+            $annotations = $test->getAnnotations();
+
+            if (!isset($annotations['class']['covers']) &&
+                !isset($annotations['method']['covers']) &&
+                !isset($annotations['class']['coversNothing']) &&
+                !isset($annotations['method']['coversNothing'])) {
+                $this->addFailure(
+                    $test,
+                    new MissingCoversAnnotationException(
+                        'This test does not have a @covers annotation but is expected to have one'
+                    ),
+                    $time
+                );
+
+                $risky = true;
+            }
         }
 
         if ($collectCodeCoverage) {
@@ -825,16 +846,6 @@ final class TestResult implements Countable
                     ),
                     $time
                 );
-            } catch (OriginalMissingCoversAnnotationException $cce) {
-                if ($linesToBeCovered !== false) {
-                    $this->addFailure(
-                        $test,
-                        new MissingCoversAnnotationException(
-                            'This test does not have a @covers annotation but is expected to have one'
-                        ),
-                        $time
-                    );
-                }
             } catch (OriginalCodeCoverageException $cce) {
                 $error = true;
 
@@ -856,7 +867,7 @@ final class TestResult implements Countable
             $this->addWarning($test, $e, $time);
         } elseif ($this->beStrictAboutTestsThatDoNotTestAnything &&
             !$test->doesNotPerformAssertions() &&
-            $test->getNumAssertions() == 0) {
+            $test->getNumAssertions() === 0) {
             try {
                 $reflected = new \ReflectionClass($test);
                 // @codeCoverageIgnoreStart
@@ -1113,6 +1124,16 @@ final class TestResult implements Countable
     public function isStrictAboutTodoAnnotatedTests(): bool
     {
         return $this->beStrictAboutTodoAnnotatedTests;
+    }
+
+    public function forceCoversAnnotation(): void
+    {
+        $this->forceCoversAnnotation = true;
+    }
+
+    public function forcesCoversAnnotation(): bool
+    {
+        return $this->forceCoversAnnotation;
     }
 
     /**

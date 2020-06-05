@@ -21,6 +21,7 @@ use phpDocumentor\Reflection\Type;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Prophet;
 use SebastianBergmann\CodeCoverage\CodeCoverage;
+use SebastianBergmann\CodeUnit\CodeUnit;
 use SebastianBergmann\CodeUnitReverseLookup\Wizard;
 use SebastianBergmann\Comparator\Comparator;
 use SebastianBergmann\Diff\Diff;
@@ -32,22 +33,19 @@ use SebastianBergmann\Invoker\Invoker;
 use SebastianBergmann\ObjectEnumerator\Enumerator;
 use SebastianBergmann\RecursionContext\Context;
 use SebastianBergmann\ResourceOperations\ResourceOperations;
+use SebastianBergmann\Template\Template;
 use SebastianBergmann\Timer\Timer;
 use SebastianBergmann\Type\TypeName;
 use SebastianBergmann\Version;
-use Text_Template;
 use TheSeer\Tokenizer\Tokenizer;
 use Webmozart\Assert\Assert;
 
-/**
- * @internal This class is not covered by the backward compatibility promise for PHPUnit
- */
 final class Blacklist
 {
     /**
      * @var array<string,int>
      */
-    public static $blacklistedClassNames = [
+    private const BLACKLISTED_CLASS_NAMES = [
         // composer
         ClassLoader::class => 1,
 
@@ -88,13 +86,16 @@ final class Blacklist
         Invoker::class => 1,
 
         // phpunit/php-text-template
-        Text_Template::class => 1,
+        Template::class => 1,
 
         // phpunit/php-timer
         Timer::class => 1,
 
         // phpunit/php-token-stream
         PHP_Token::class => 1,
+
+        // sebastian/code-unit
+        CodeUnit::class => 1,
 
         // sebastian/code-unit-reverse-lookup
         Wizard::class => 1,
@@ -141,6 +142,20 @@ final class Blacklist
      */
     private static $directories;
 
+    public static function addDirectory(string $directory): void
+    {
+        if (!\is_dir($directory)) {
+            throw new Exception(
+                \sprintf(
+                    '"%s" is not a directory',
+                    $directory
+                )
+            );
+        }
+
+        self::$directories[] = \realpath($directory);
+    }
+
     /**
      * @throws Exception
      *
@@ -181,7 +196,7 @@ final class Blacklist
         if (self::$directories === null) {
             self::$directories = [];
 
-            foreach (self::$blacklistedClassNames as $className => $parent) {
+            foreach (self::BLACKLISTED_CLASS_NAMES as $className => $parent) {
                 if (!\class_exists($className)) {
                     continue;
                 }

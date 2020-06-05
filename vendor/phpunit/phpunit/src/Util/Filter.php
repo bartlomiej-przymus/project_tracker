@@ -65,7 +65,10 @@ final class Filter
         return $filteredStacktrace;
     }
 
-    private static function shouldPrintFrame($frame, $prefix, Blacklist $blacklist): bool
+    /**
+     * @param false|string $prefix
+     */
+    private static function shouldPrintFrame(array $frame, $prefix, Blacklist $blacklist): bool
     {
         if (!isset($frame['file'])) {
             return false;
@@ -73,7 +76,13 @@ final class Filter
 
         $file              = $frame['file'];
         $fileIsNotPrefixed = $prefix === false || \strpos($file, $prefix) !== 0;
-        $script            = \realpath($GLOBALS['_SERVER']['SCRIPT_NAME']);
+
+        // @see https://github.com/sebastianbergmann/phpunit/issues/4033
+        if (isset($GLOBALS['_SERVER']['SCRIPT_NAME'])) {
+            $script = \realpath($GLOBALS['_SERVER']['SCRIPT_NAME']);
+        } else {
+            $script = '';
+        }
 
         return \is_file($file) &&
                self::fileIsBlacklisted($file, $blacklist) &&
@@ -81,7 +90,7 @@ final class Filter
                $file !== $script;
     }
 
-    private static function fileIsBlacklisted($file, Blacklist $blacklist): bool
+    private static function fileIsBlacklisted(string $file, Blacklist $blacklist): bool
     {
         return (empty($GLOBALS['__PHPUNIT_ISOLATION_BLACKLIST']) ||
                 !\in_array($file, $GLOBALS['__PHPUNIT_ISOLATION_BLACKLIST'], true)) &&

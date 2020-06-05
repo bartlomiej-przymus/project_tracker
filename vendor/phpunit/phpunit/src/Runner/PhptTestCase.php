@@ -20,9 +20,8 @@ use PHPUnit\Framework\SyntheticSkippedError;
 use PHPUnit\Framework\Test;
 use PHPUnit\Framework\TestResult;
 use PHPUnit\Util\PHP\AbstractPhpProcess;
+use SebastianBergmann\Template\Template;
 use SebastianBergmann\Timer\Timer;
-use Text_Template;
-use Throwable;
 
 /**
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
@@ -104,7 +103,6 @@ final class PhptTestCase implements SelfDescribing, Test
      * @throws Exception
      * @throws \SebastianBergmann\CodeCoverage\CoveredCodeNotExecutedException
      * @throws \SebastianBergmann\CodeCoverage\InvalidArgumentException
-     * @throws \SebastianBergmann\CodeCoverage\MissingCoversAnnotationException
      * @throws \SebastianBergmann\CodeCoverage\RuntimeException
      * @throws \SebastianBergmann\CodeCoverage\UnintentionallyCoveredCodeException
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
@@ -168,10 +166,11 @@ final class PhptTestCase implements SelfDescribing, Test
             $this->renderForCoverage($code);
         }
 
-        Timer::start();
+        $timer = new Timer;
+        $timer->start();
 
         $jobResult    = $this->phpUtil->runJob($code, $this->stringifyIni($settings));
-        $time         = Timer::stop();
+        $time         = $timer->stop()->asSeconds();
         $this->output = $jobResult['stdout'] ?? '';
 
         if ($result->getCollectCodeCoverageInformation() && ($coverage = $this->cleanupForCoverage())) {
@@ -207,7 +206,7 @@ final class PhptTestCase implements SelfDescribing, Test
             }
 
             $result->addFailure($this, $failure, $time);
-        } catch (Throwable $t) {
+        } catch (\Throwable $t) {
             $result->addError($this, $t, $time);
         }
 
@@ -261,9 +260,9 @@ final class PhptTestCase implements SelfDescribing, Test
     /**
      * Parse --INI-- section key value pairs and return as array.
      *
-     * @param array|string
+     * @param array|string $content
      */
-    private function parseIniSection($content, $ini = []): array
+    private function parseIniSection($content, array $ini = []): array
     {
         if (\is_string($content)) {
             $content = \explode("\n", \trim($content));
@@ -319,7 +318,7 @@ final class PhptTestCase implements SelfDescribing, Test
         $assertions = [
             'EXPECT'      => 'assertEquals',
             'EXPECTF'     => 'assertStringMatchesFormat',
-            'EXPECTREGEX' => 'assertRegExp',
+            'EXPECTREGEX' => 'assertMatchesRegularExpression',
         ];
 
         $actual = \preg_replace('/\r\n/', "\n", \trim($output));
@@ -556,7 +555,7 @@ final class PhptTestCase implements SelfDescribing, Test
     {
         $files = $this->getCoverageFiles();
 
-        $template = new Text_Template(
+        $template = new Template(
             __DIR__ . '/../Util/PHP/Template/PhptTestCase.tpl'
         );
 

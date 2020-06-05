@@ -9,7 +9,6 @@
  */
 namespace PHPUnit\Framework\Constraint;
 
-use Countable;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\SelfDescribing;
 use SebastianBergmann\Comparator\ComparisonFailure;
@@ -18,10 +17,10 @@ use SebastianBergmann\Exporter\Exporter;
 /**
  * Abstract base class for constraints which can be applied to any value.
  */
-abstract class Constraint implements Countable, SelfDescribing
+abstract class Constraint implements \Countable, SelfDescribing
 {
     /**
-     * @var Exporter
+     * @var ?Exporter
      */
     private $exporter;
 
@@ -38,7 +37,7 @@ abstract class Constraint implements Countable, SelfDescribing
      * @throws ExpectationFailedException
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
-    public function evaluate($other, string $description = '', bool $returnResult = false)
+    public function evaluate($other, string $description = '', bool $returnResult = false): ?bool
     {
         $success = false;
 
@@ -53,6 +52,8 @@ abstract class Constraint implements Countable, SelfDescribing
         if (!$success) {
             $this->fail($other, $description);
         }
+
+        return null;
     }
 
     /**
@@ -95,6 +96,8 @@ abstract class Constraint implements Countable, SelfDescribing
      *
      * @throws ExpectationFailedException
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
+     * @psalm-return never-return
      */
     protected function fail($other, $description, ComparisonFailure $comparisonFailure = null): void
     {

@@ -21,7 +21,7 @@ final class Help
 
     private const HELP_TEXT = [
         'Usage'                 => [
-            ['text' => 'phpunit [options] UnitTest [UnitTest.php]'],
+            ['text' => 'phpunit [options] UnitTest.php'],
             ['text' => 'phpunit [options] <directory>'],
         ],
         'Code Coverage Options' => [
@@ -85,13 +85,14 @@ final class Help
             ['arg'    => '--stop-on-risky', 'desc' => 'Stop execution upon first risky test'],
             ['arg'    => '--stop-on-skipped', 'desc' => 'Stop execution upon first skipped test'],
             ['arg'    => '--stop-on-incomplete', 'desc' => 'Stop execution upon first incomplete test'],
-            ['arg'    => '--fail-on-warning', 'desc' => 'Treat tests with warnings as failures'],
+            ['arg'    => '--fail-on-incomplete', 'desc' => 'Treat incomplete tests as failures'],
             ['arg'    => '--fail-on-risky', 'desc' => 'Treat risky tests as failures'],
+            ['arg'    => '--fail-on-skipped', 'desc' => 'Treat skipped tests as failures'],
+            ['arg'    => '--fail-on-warning', 'desc' => 'Treat tests with warnings as failures'],
             ['arg'    => '-v|--verbose', 'desc' => 'Output more verbose information'],
             ['arg'    => '--debug', 'desc' => 'Display debugging information'],
             ['spacer' => ''],
 
-            ['arg'    => '--loader <loader>', 'desc' => 'TestSuiteLoader implementation to use'],
             ['arg'    => '--repeat <times>', 'desc' => 'Runs the test(s) repeatedly'],
             ['arg'    => '--teamcity', 'desc' => 'Report test execution progress in TeamCity format'],
             ['arg'    => '--testdox', 'desc' => 'Report test execution progress in TestDox format'],
@@ -113,6 +114,7 @@ final class Help
             ['arg' => '-c|--configuration <file>', 'desc' => 'Read configuration from XML file'],
             ['arg' => '--no-configuration', 'desc' => 'Ignore default configuration file (phpunit.xml)'],
             ['arg' => '--no-logging', 'desc' => 'Ignore logging configuration'],
+            ['arg' => '--extensions <extensions>', 'desc' => 'A comma separated list of PHPUnit extensions to load'],
             ['arg' => '--no-extensions', 'desc' => 'Do not load PHPUnit extensions'],
             ['arg' => '--include-path <path(s)>', 'desc' => 'Prepend PHP\'s include_path with given path(s)'],
             ['arg' => '-d <key[=value]>', 'desc' => 'Sets a php.ini value'],

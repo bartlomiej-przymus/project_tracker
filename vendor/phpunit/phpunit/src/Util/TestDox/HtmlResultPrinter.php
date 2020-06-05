@@ -9,6 +9,8 @@
  */
 namespace PHPUnit\Util\TestDox;
 
+use PHPUnit\Framework\TestResult;
+
 /**
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
@@ -76,6 +78,10 @@ EOT;
 </html>
 EOT;
 
+    public function printResult(TestResult $result): void
+    {
+    }
+
     /**
      * Handler for 'start run' event.
      */
@@ -101,7 +107,7 @@ EOT;
     /**
      * Handler for 'on test' event.
      */
-    protected function onTest($name, bool $success = true): void
+    protected function onTest(string $name, bool $success = true): void
     {
         $this->write(
             \sprintf(
