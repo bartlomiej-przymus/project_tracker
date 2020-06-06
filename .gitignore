@@ -2,3 +2,4 @@ vendor/
 .env
 *.log
 writable/
+build/logs/logfile.xml
