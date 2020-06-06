@@ -7,5 +7,5 @@ Example Session
 
 Health
  [x] Is defined app path
- [ ] Base url has been set
+ [x] Base url has been set
 

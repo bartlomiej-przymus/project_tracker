@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="5" assertions="3" errors="2" warnings="0" failures="1" skipped="0" time="0.065463">
-    <testsuite name="app" tests="5" assertions="3" errors="2" warnings="0" failures="1" skipped="0" time="0.065463">
-      <testsuite name="ExampleDatabaseTest" file="C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php" tests="2" assertions="0" errors="2" warnings="0" failures="0" skipped="0" time="0.046282">
-        <testcase name="testModelFindAll" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" file="C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php" line="14" assertions="0" time="0.042810">
+  <testsuite name="" tests="5" assertions="3" errors="2" warnings="0" failures="0" skipped="0" time="0.066794">
+    <testsuite name="app" tests="5" assertions="3" errors="2" warnings="0" failures="0" skipped="0" time="0.066794">
+      <testsuite name="ExampleDatabaseTest" file="C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php" tests="2" assertions="0" errors="2" warnings="0" failures="0" skipped="0" time="0.046398">
+        <testcase name="testModelFindAll" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" file="C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php" line="14" assertions="0" time="0.042881">
           <error type="Error">ExampleDatabaseTest::testModelFindAll
 Error: Class 'SQLite3' not found
 
@@ -15,7 +15,7 @@ C:\xampp\htdocs\project_tracker\tests\_support\DatabaseTestCase.php:40
 C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php:9
 </error>
         </testcase>
-        <testcase name="testSoftDeleteLeavesRow" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" file="C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php" line="25" assertions="0" time="0.003473">
+        <testcase name="testSoftDeleteLeavesRow" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" file="C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php" line="25" assertions="0" time="0.003517">
           <error type="Error">ExampleDatabaseTest::testSoftDeleteLeavesRow
 Error: Class 'SQLite3' not found
 
@@ -28,18 +28,12 @@ C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php:9
 </error>
         </testcase>
       </testsuite>
-      <testsuite name="ExampleSessionTest" file="C:\xampp\htdocs\project_tracker\tests\session\ExampleSessionTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.009983">
-        <testcase name="testSessionSimple" class="ExampleSessionTest" classname="ExampleSessionTest" file="C:\xampp\htdocs\project_tracker\tests\session\ExampleSessionTest.php" line="10" assertions="1" time="0.009983"/>
+      <testsuite name="ExampleSessionTest" file="C:\xampp\htdocs\project_tracker\tests\session\ExampleSessionTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.010702">
+        <testcase name="testSessionSimple" class="ExampleSessionTest" classname="ExampleSessionTest" file="C:\xampp\htdocs\project_tracker\tests\session\ExampleSessionTest.php" line="10" assertions="1" time="0.010702"/>
       </testsuite>
-      <testsuite name="HealthTest" file="C:\xampp\htdocs\project_tracker\tests\unit\HealthTest.php" tests="2" assertions="2" errors="0" warnings="0" failures="1" skipped="0" time="0.009198">
-        <testcase name="testIsDefinedAppPath" class="HealthTest" classname="HealthTest" file="C:\xampp\htdocs\project_tracker\tests\unit\HealthTest.php" line="10" assertions="1" time="0.003699"/>
-        <testcase name="testBaseUrlHasBeenSet" class="HealthTest" classname="HealthTest" file="C:\xampp\htdocs\project_tracker\tests\unit\HealthTest.php" line="17" assertions="1" time="0.005499">
-          <failure type="PHPUnit\Framework\ExpectationFailedException">HealthTest::testBaseUrlHasBeenSet
-Failed asserting that false is true.
-
-C:\xampp\htdocs\project_tracker\tests\unit\HealthTest.php:31
-</failure>
-        </testcase>
+      <testsuite name="HealthTest" file="C:\xampp\htdocs\project_tracker\tests\unit\HealthTest.php" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.009694">
+        <testcase name="testIsDefinedAppPath" class="HealthTest" classname="HealthTest" file="C:\xampp\htdocs\project_tracker\tests\unit\HealthTest.php" line="10" assertions="1" time="0.004275"/>
+        <testcase name="testBaseUrlHasBeenSet" class="HealthTest" classname="HealthTest" file="C:\xampp\htdocs\project_tracker\tests\unit\HealthTest.php" line="17" assertions="1" time="0.005418"/>
       </testsuite>
     </testsuite>
   </testsuite>
