@@ -23,7 +23,7 @@ env:
   #- DB=sqlite
 
 services:
-  - memcached
+  #- memcached
   - mysql
   #- postgresql
   #- redis-server
@@ -41,9 +41,9 @@ before_install:
   #- psql -c 'CREATE DATABASE test;' -U postgres
 
 before_script:
-  - composer self-update
+  #- composer self-update
   #- composer install --prefer-source --no-interaction
-  - echo 'extension = memcached.so' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  #- echo 'extension = memcached.so' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   #- echo 'extension = redis.so' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   
 after_success:
