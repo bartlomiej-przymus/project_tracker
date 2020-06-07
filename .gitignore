@@ -3,3 +3,4 @@ vendor/
 *.log
 writable/
 build/logs/logfile.xml
+build/
