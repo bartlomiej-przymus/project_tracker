@@ -2,8 +2,10 @@
 
 use CodeIgniter\Database\Migration;
 
-class AddUser extends Migration
+class TestUser extends Migration
 {
+    protected $DBGroup = 'tests';
+
 	public function up()
 	{
 		$this->forge->addField([
