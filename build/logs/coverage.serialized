@@ -1,0 +1,985 @@
+<?php
+$coverage = new SebastianBergmann\CodeCoverage\CodeCoverage;
+$coverage->setData(array (
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Filters\\Noauth.php' => 
+  array (
+    11 => 
+    array (
+    ),
+    13 => 
+    array (
+    ),
+    14 => 
+    array (
+    ),
+    21 => 
+    array (
+    ),
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Filters\\Auth.php' => 
+  array (
+    13 => 
+    array (
+    ),
+    15 => 
+    array (
+    ),
+    16 => 
+    array (
+    ),
+    23 => 
+    array (
+    ),
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Models\\AuthModel.php' => 
+  array (
+    71 => 
+    array (
+    ),
+    73 => 
+    array (
+    ),
+    75 => 
+    array (
+    ),
+    76 => NULL,
+    80 => 
+    array (
+    ),
+    82 => 
+    array (
+    ),
+    83 => NULL,
+    87 => 
+    array (
+    ),
+    89 => 
+    array (
+    ),
+    90 => NULL,
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Filters.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\ForeignCharacters.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Images.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Logger.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Validation\\AuthRules.php' => 
+  array (
+    13 => 
+    array (
+    ),
+    15 => 
+    array (
+    ),
+    17 => 
+    array (
+    ),
+    19 => 
+    array (
+    ),
+    21 => 
+    array (
+    ),
+    22 => NULL,
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Kint.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Boot\\development.php' => 
+  array (
+    10 => 
+    array (
+    ),
+    11 => 
+    array (
+    ),
+    21 => 
+    array (
+    ),
+    32 => 
+    array (
+    ),
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\UserAgents.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Boot\\testing.php' => 
+  array (
+    11 => 
+    array (
+    ),
+    12 => 
+    array (
+    ),
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Honeypot.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\ContentSecurityPolicy.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Events.php' => 
+  array (
+    23 => 
+    array (
+    ),
+    25 => 
+    array (
+    ),
+    27 => 
+    array (
+    ),
+    31 => 
+    array (
+    ),
+    32 => 
+    array (
+    ),
+    41 => 
+    array (
+    ),
+    43 => 
+    array (
+    ),
+    44 => 
+    array (
+    ),
+    46 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+    ),
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Migrations.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Mimes.php' => 
+  array (
+    486 => 
+    array (
+    ),
+    488 => 
+    array (
+    ),
+    490 => 
+    array (
+    ),
+    493 => 
+    array (
+    ),
+    494 => NULL,
+    508 => 
+    array (
+    ),
+    510 => 
+    array (
+    ),
+    512 => 
+    array (
+    ),
+    514 => 
+    array (
+    ),
+    517 => 
+    array (
+    ),
+    519 => 
+    array (
+    ),
+    521 => 
+    array (
+    ),
+    525 => 
+    array (
+    ),
+    526 => NULL,
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Controllers\\Settings.php' => 
+  array (
+    9 => 
+    array (
+    ),
+    11 => 
+    array (
+    ),
+    13 => 
+    array (
+    ),
+    15 => 
+    array (
+    ),
+    18 => 
+    array (
+    ),
+    20 => 
+    array (
+    ),
+    22 => 
+    array (
+    ),
+    25 => 
+    array (
+    ),
+    27 => 
+    array (
+    ),
+    29 => 
+    array (
+    ),
+    30 => 
+    array (
+    ),
+    34 => 
+    array (
+    ),
+    36 => 
+    array (
+    ),
+    38 => 
+    array (
+    ),
+    40 => 
+    array (
+    ),
+    43 => 
+    array (
+    ),
+    45 => 
+    array (
+    ),
+    47 => 
+    array (
+    ),
+    51 => 
+    array (
+    ),
+    53 => 
+    array (
+    ),
+    55 => 
+    array (
+    ),
+    58 => 
+    array (
+    ),
+    60 => 
+    array (
+    ),
+    62 => 
+    array (
+    ),
+    65 => 
+    array (
+    ),
+    67 => 
+    array (
+    ),
+    69 => 
+    array (
+    ),
+    71 => 
+    array (
+    ),
+    73 => 
+    array (
+    ),
+    75 => 
+    array (
+    ),
+    78 => 
+    array (
+    ),
+    80 => 
+    array (
+    ),
+    82 => 
+    array (
+    ),
+    84 => 
+    array (
+    ),
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\App.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Pager.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\DocTypes.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Format.php' => 
+  array (
+    54 => 
+    array (
+    ),
+    56 => 
+    array (
+    ),
+    59 => 
+    array (
+    ),
+    61 => 
+    array (
+    ),
+    63 => 
+    array (
+    ),
+    66 => 
+    array (
+    ),
+    67 => NULL,
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Exceptions.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Database.php' => 
+  array (
+    86 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+    ),
+    91 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+    ),
+    93 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+    ),
+    97 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+    ),
+    99 => 
+    array (
+    ),
+    101 => 
+    array (
+    ),
+    103 => 
+    array (
+    ),
+    105 => 
+    array (
+    ),
+    110 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+    ),
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Modules.php' => 
+  array (
+    58 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+    ),
+    60 => 
+    array (
+    ),
+    63 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+    ),
+    65 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+    ),
+    66 => NULL,
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Autoload.php' => 
+  array (
+    29 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+      1 => 'ExampleDatabaseTest::testSoftDeleteLeavesRow',
+      2 => 'ExampleSessionTest::testSessionSimple',
+      3 => 'HealthTest::testIsDefinedAppPath',
+      4 => 'HealthTest::testBaseUrlHasBeenSet',
+    ),
+    53 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+      1 => 'ExampleDatabaseTest::testSoftDeleteLeavesRow',
+      2 => 'ExampleSessionTest::testSessionSimple',
+      3 => 'HealthTest::testIsDefinedAppPath',
+      4 => 'HealthTest::testBaseUrlHasBeenSet',
+    ),
+    54 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+      1 => 'ExampleDatabaseTest::testSoftDeleteLeavesRow',
+      2 => 'ExampleSessionTest::testSessionSimple',
+      3 => 'HealthTest::testIsDefinedAppPath',
+      4 => 'HealthTest::testBaseUrlHasBeenSet',
+    ),
+    55 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+      1 => 'ExampleDatabaseTest::testSoftDeleteLeavesRow',
+      2 => 'ExampleSessionTest::testSessionSimple',
+      3 => 'HealthTest::testIsDefinedAppPath',
+      4 => 'HealthTest::testBaseUrlHasBeenSet',
+    ),
+    74 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+      1 => 'ExampleDatabaseTest::testSoftDeleteLeavesRow',
+      2 => 'ExampleSessionTest::testSessionSimple',
+      3 => 'HealthTest::testIsDefinedAppPath',
+      4 => 'HealthTest::testBaseUrlHasBeenSet',
+    ),
+    80 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+      1 => 'ExampleDatabaseTest::testSoftDeleteLeavesRow',
+      2 => 'ExampleSessionTest::testSessionSimple',
+      3 => 'HealthTest::testIsDefinedAppPath',
+      4 => 'HealthTest::testBaseUrlHasBeenSet',
+    ),
+    81 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+      1 => 'ExampleDatabaseTest::testSoftDeleteLeavesRow',
+      2 => 'ExampleSessionTest::testSessionSimple',
+      3 => 'HealthTest::testIsDefinedAppPath',
+      4 => 'HealthTest::testBaseUrlHasBeenSet',
+    ),
+    83 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+      1 => 'ExampleDatabaseTest::testSoftDeleteLeavesRow',
+      2 => 'ExampleSessionTest::testSessionSimple',
+      3 => 'HealthTest::testIsDefinedAppPath',
+      4 => 'HealthTest::testBaseUrlHasBeenSet',
+    ),
+    84 => 
+    array (
+      0 => 'ExampleDatabaseTest::testModelFindAll',
+      1 => 'ExampleDatabaseTest::testSoftDeleteLeavesRow',
+      2 => 'ExampleSessionTest::testSessionSimple',
+      3 => 'HealthTest::testIsDefinedAppPath',
+      4 => 'HealthTest::testBaseUrlHasBeenSet',
+    ),
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Boot\\production.php' => 
+  array (
+    10 => 
+    array (
+    ),
+    11 => 
+    array (
+    ),
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Toolbar.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Controllers\\Home.php' => 
+  array (
+    9 => 
+    array (
+    ),
+    11 => 
+    array (
+    ),
+    13 => 
+    array (
+    ),
+    15 => 
+    array (
+    ),
+    16 => 
+    array (
+    ),
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Validation.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Database\\Migrations\\2020-05-21-205910_add_users.php' => 
+  array (
+    9 => 
+    array (
+    ),
+    11 => 
+    array (
+    ),
+    48 => 
+    array (
+    ),
+    49 => 
+    array (
+    ),
+    50 => 
+    array (
+    ),
+    56 => 
+    array (
+    ),
+    57 => 
+    array (
+    ),
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Cache.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Email.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Controllers\\BaseController.php' => 
+  array (
+    37 => 
+    array (
+    ),
+    44 => 
+    array (
+    ),
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\View.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Controllers\\Auth.php' => 
+  array (
+    11 => 
+    array (
+    ),
+    13 => 
+    array (
+    ),
+    15 => 
+    array (
+    ),
+    17 => 
+    array (
+    ),
+    19 => 
+    array (
+    ),
+    20 => 
+    array (
+    ),
+    25 => 
+    array (
+    ),
+    27 => 
+    array (
+    ),
+    29 => 
+    array (
+    ),
+    31 => 
+    array (
+    ),
+    33 => 
+    array (
+    ),
+    36 => 
+    array (
+    ),
+    38 => 
+    array (
+    ),
+    40 => 
+    array (
+    ),
+    42 => 
+    array (
+    ),
+    44 => 
+    array (
+    ),
+    46 => 
+    array (
+    ),
+    48 => 
+    array (
+    ),
+    50 => 
+    array (
+    ),
+    54 => 
+    array (
+    ),
+    56 => 
+    array (
+    ),
+    58 => 
+    array (
+    ),
+    59 => 
+    array (
+    ),
+    64 => 
+    array (
+    ),
+    66 => 
+    array (
+    ),
+    69 => 
+    array (
+    ),
+    71 => 
+    array (
+    ),
+    74 => 
+    array (
+    ),
+    82 => 
+    array (
+    ),
+    86 => 
+    array (
+    ),
+    88 => 
+    array (
+    ),
+    92 => 
+    array (
+    ),
+    94 => 
+    array (
+    ),
+    96 => 
+    array (
+    ),
+    98 => 
+    array (
+    ),
+    102 => 
+    array (
+    ),
+    104 => 
+    array (
+    ),
+    106 => 
+    array (
+    ),
+    107 => 
+    array (
+    ),
+    112 => 
+    array (
+    ),
+    114 => 
+    array (
+    ),
+    116 => 
+    array (
+    ),
+    118 => 
+    array (
+    ),
+    123 => 
+    array (
+    ),
+    125 => 
+    array (
+    ),
+    126 => NULL,
+    130 => 
+    array (
+    ),
+    132 => 
+    array (
+    ),
+    133 => NULL,
+    137 => 
+    array (
+    ),
+    139 => 
+    array (
+    ),
+    141 => 
+    array (
+    ),
+    145 => 
+    array (
+    ),
+    149 => 
+    array (
+    ),
+    151 => 
+    array (
+    ),
+    155 => 
+    array (
+    ),
+    157 => 
+    array (
+    ),
+    159 => 
+    array (
+    ),
+    161 => 
+    array (
+    ),
+    163 => 
+    array (
+    ),
+    165 => 
+    array (
+    ),
+    167 => 
+    array (
+    ),
+    169 => 
+    array (
+    ),
+    171 => 
+    array (
+    ),
+    173 => 
+    array (
+    ),
+    175 => 
+    array (
+    ),
+    177 => 
+    array (
+    ),
+    179 => 
+    array (
+    ),
+    181 => 
+    array (
+    ),
+    186 => 
+    array (
+    ),
+    188 => 
+    array (
+    ),
+    190 => 
+    array (
+    ),
+    191 => 
+    array (
+    ),
+    195 => 
+    array (
+    ),
+    197 => 
+    array (
+    ),
+    199 => 
+    array (
+    ),
+    201 => 
+    array (
+    ),
+    203 => 
+    array (
+    ),
+    205 => 
+    array (
+    ),
+    209 => 
+    array (
+    ),
+    212 => 
+    array (
+    ),
+    216 => 
+    array (
+    ),
+    218 => 
+    array (
+    ),
+    220 => 
+    array (
+    ),
+    224 => 
+    array (
+    ),
+    226 => 
+    array (
+    ),
+    232 => 
+    array (
+    ),
+    233 => 
+    array (
+    ),
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Controllers\\Default.php' => 
+  array (
+    9 => 
+    array (
+    ),
+    11 => 
+    array (
+    ),
+    13 => 
+    array (
+    ),
+    15 => 
+    array (
+    ),
+    16 => 
+    array (
+    ),
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Encryption.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Common.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Constants.php' => 
+  array (
+    14 => 
+    array (
+    ),
+    24 => 
+    array (
+    ),
+    34 => 
+    array (
+    ),
+    35 => 
+    array (
+    ),
+    36 => 
+    array (
+    ),
+    37 => 
+    array (
+    ),
+    38 => 
+    array (
+    ),
+    39 => 
+    array (
+    ),
+    40 => 
+    array (
+    ),
+    41 => 
+    array (
+    ),
+    68 => 
+    array (
+    ),
+    69 => 
+    array (
+    ),
+    70 => 
+    array (
+    ),
+    71 => 
+    array (
+    ),
+    72 => 
+    array (
+    ),
+    73 => 
+    array (
+    ),
+    74 => 
+    array (
+    ),
+    75 => 
+    array (
+    ),
+    76 => 
+    array (
+    ),
+    77 => 
+    array (
+    ),
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Paths.php' => 
+  array (
+  ),
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Services.php' => 
+  array (
+    5 => 
+    array (
+    ),
+  ),
+));
+$coverage->setTests(array (
+  'UNCOVERED_FILES_FROM_WHITELIST' => 
+  array (
+    'size' => 'unknown',
+    'status' => -1,
+  ),
+  'ExampleDatabaseTest::testModelFindAll' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'ExampleDatabaseTest::testSoftDeleteLeavesRow' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'ExampleSessionTest::testSessionSimple' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'HealthTest::testIsDefinedAppPath' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'HealthTest::testBaseUrlHasBeenSet' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+));
+
+$filter = $coverage->filter();
+$filter->setWhitelistedFiles(array (
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Common.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\App.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Autoload.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Boot\\development.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Boot\\production.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Boot\\testing.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Cache.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Constants.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\ContentSecurityPolicy.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Database.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\DocTypes.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Email.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Encryption.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Events.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Exceptions.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Filters.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\ForeignCharacters.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Format.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Honeypot.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Images.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Kint.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Logger.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Migrations.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Mimes.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Modules.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Pager.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Paths.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Services.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Toolbar.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\UserAgents.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\Validation.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Config\\View.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Controllers\\Auth.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Controllers\\BaseController.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Controllers\\Default.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Controllers\\Home.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Controllers\\Settings.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Database\\Migrations\\2020-05-21-205910_add_users.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Filters\\Auth.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Filters\\Noauth.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Models\\AuthModel.php' => true,
+  'C:\\xampp\\htdocs\\project_tracker\\app\\Validation\\AuthRules.php' => true,
+));
+
+return $coverage;

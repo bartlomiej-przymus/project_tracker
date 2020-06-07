@@ -1,6 +1,6 @@
 Example Database
- [ ] Model find all
- [ ] Soft delete leaves row
+ [x] Model find all
+ [x] Soft delete leaves row
 
 Example Session
  [x] Session simple
