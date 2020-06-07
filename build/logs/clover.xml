@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1591541910">
-  <project timestamp="1591541910">
+<coverage generated="1591542147">
+  <project timestamp="1591542147">
     <file name="C:\xampp\htdocs\project_tracker\app\Common.php">
       <metrics loc="15" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>

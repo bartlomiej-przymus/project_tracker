@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="8" assertions="6" errors="0" warnings="3" failures="0" skipped="0" time="0.550012">
-    <testsuite name="app" tests="8" assertions="6" errors="0" warnings="3" failures="0" skipped="0" time="0.550012">
-      <testsuite name="App\Controllers\TestAuth" file="C:\xampp\htdocs\project_tracker\tests\app\Controllers\AuthTest.php" tests="1" assertions="0" errors="0" warnings="1" failures="0" skipped="0" time="0.013377">
-        <testcase name="Warning" assertions="0" time="0.013377">
+  <testsuite name="" tests="8" assertions="6" errors="0" warnings="3" failures="0" skipped="0" time="0.542136">
+    <testsuite name="app" tests="8" assertions="6" errors="0" warnings="3" failures="0" skipped="0" time="0.542136">
+      <testsuite name="App\Controllers\TestAuth" file="C:\xampp\htdocs\project_tracker\tests\app\Controllers\AuthTest.php" tests="1" assertions="0" errors="0" warnings="1" failures="0" skipped="0" time="0.013080">
+        <testcase name="Warning" assertions="0" time="0.013080">
           <warning type="PHPUnit\Framework\Warning">Warning
 No tests found in class "App\Controllers\TestAuth".
 
 </warning>
         </testcase>
       </testsuite>
-      <testsuite name="CodeIgniter\Test\CIDatabaseTestCase" file="C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Test\CIDatabaseTestCase.php" tests="1" assertions="0" errors="0" warnings="1" failures="0" skipped="0" time="0.000648">
-        <testcase name="Warning" assertions="0" time="0.000648">
+      <testsuite name="CodeIgniter\Test\CIDatabaseTestCase" file="C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Test\CIDatabaseTestCase.php" tests="1" assertions="0" errors="0" warnings="1" failures="0" skipped="0" time="0.000612">
+        <testcase name="Warning" assertions="0" time="0.000612">
           <warning type="PHPUnit\Framework\Warning">Warning
 No tests found in class "CodeIgniter\Test\CIDatabaseTestCase".
 
 </warning>
         </testcase>
       </testsuite>
-      <testsuite name="CodeIgniter\Test\CIUnitTestCase" file="C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Test\CIUnitTestCase.php" tests="1" assertions="0" errors="0" warnings="1" failures="0" skipped="0" time="0.000577">
-        <testcase name="Warning" assertions="0" time="0.000577">
+      <testsuite name="CodeIgniter\Test\CIUnitTestCase" file="C:\xampp\htdocs\project_tracker\vendor\codeigniter4\framework\system\Test\CIUnitTestCase.php" tests="1" assertions="0" errors="0" warnings="1" failures="0" skipped="0" time="0.000609">
+        <testcase name="Warning" assertions="0" time="0.000609">
           <warning type="PHPUnit\Framework\Warning">Warning
 No tests found in class "CodeIgniter\Test\CIUnitTestCase".
 
 </warning>
         </testcase>
       </testsuite>
-      <testsuite name="ExampleDatabaseTest" file="C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php" tests="2" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="0.462106">
-        <testcase name="testModelFindAll" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" file="C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php" line="14" assertions="1" time="0.281401"/>
-        <testcase name="testSoftDeleteLeavesRow" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" file="C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php" line="25" assertions="2" time="0.180706"/>
+      <testsuite name="ExampleDatabaseTest" file="C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php" tests="2" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="0.453146">
+        <testcase name="testModelFindAll" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" file="C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php" line="14" assertions="1" time="0.279878"/>
+        <testcase name="testSoftDeleteLeavesRow" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" file="C:\xampp\htdocs\project_tracker\tests\database\ExampleDatabaseTest.php" line="25" assertions="2" time="0.173269"/>
       </testsuite>
-      <testsuite name="ExampleSessionTest" file="C:\xampp\htdocs\project_tracker\tests\session\ExampleSessionTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.029764">
-        <testcase name="testSessionSimple" class="ExampleSessionTest" classname="ExampleSessionTest" file="C:\xampp\htdocs\project_tracker\tests\session\ExampleSessionTest.php" line="10" assertions="1" time="0.029764"/>
+      <testsuite name="ExampleSessionTest" file="C:\xampp\htdocs\project_tracker\tests\session\ExampleSessionTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.029056">
+        <testcase name="testSessionSimple" class="ExampleSessionTest" classname="ExampleSessionTest" file="C:\xampp\htdocs\project_tracker\tests\session\ExampleSessionTest.php" line="10" assertions="1" time="0.029056"/>
       </testsuite>
-      <testsuite name="HealthTest" file="C:\xampp\htdocs\project_tracker\tests\unit\HealthTest.php" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.043539">
-        <testcase name="testIsDefinedAppPath" class="HealthTest" classname="HealthTest" file="C:\xampp\htdocs\project_tracker\tests\unit\HealthTest.php" line="10" assertions="1" time="0.020791"/>
-        <testcase name="testBaseUrlHasBeenSet" class="HealthTest" classname="HealthTest" file="C:\xampp\htdocs\project_tracker\tests\unit\HealthTest.php" line="17" assertions="1" time="0.022748"/>
+      <testsuite name="HealthTest" file="C:\xampp\htdocs\project_tracker\tests\unit\HealthTest.php" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.045632">
+        <testcase name="testIsDefinedAppPath" class="HealthTest" classname="HealthTest" file="C:\xampp\htdocs\project_tracker\tests\unit\HealthTest.php" line="10" assertions="1" time="0.020569"/>
+        <testcase name="testBaseUrlHasBeenSet" class="HealthTest" classname="HealthTest" file="C:\xampp\htdocs\project_tracker\tests\unit\HealthTest.php" line="17" assertions="1" time="0.025063"/>
       </testsuite>
     </testsuite>
   </testsuite>
