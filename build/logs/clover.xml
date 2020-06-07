@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1591519473">
-  <project timestamp="1591519473">
+<coverage generated="1591540422">
+  <project timestamp="1591540422">
     <file name="C:\xampp\htdocs\project_tracker\app\Common.php">
       <metrics loc="15" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
@@ -440,7 +440,7 @@
     </package>
     <package name="App\Database\Migrations">
       <file name="C:\xampp\htdocs\project_tracker\app\Database\Migrations\2020-05-21-205910_add_users.php">
-        <class name="App\Database\Migrations\AddUsers" namespace="App\Database\Migrations">
+        <class name="App\Database\Migrations\AddUser" namespace="App\Database\Migrations">
           <metrics complexity="2" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="9" coveredelements="0"/>
         </class>
         <line num="7" type="method" name="up" visibility="public" complexity="1" crap="2" count="0"/>
