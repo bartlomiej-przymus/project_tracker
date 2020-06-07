@@ -13,9 +13,9 @@ global:
   - CI_ENVIRONMENT=testing
 
 # Recommended by Travis support
-sudo: required
-dist: xenial
-group: edge
+# sudo: required
+# dist: xenial
+# group: edge
 
 env:
   - DB=mysqli
@@ -42,7 +42,7 @@ before_install:
 
 before_script:
   - composer self-update
-  - composer install --prefer-source --no-interaction
+  #- composer install --prefer-source --no-interaction
   - echo 'extension = memcached.so' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   #- echo 'extension = redis.so' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   
