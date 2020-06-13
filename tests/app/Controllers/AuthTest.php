@@ -10,7 +10,7 @@ class AuthTest extends CIDatabaseTestCase
     public function testIndex()
     {
         $result = $this->controller(\App\Controllers\Auth::class)
-                        ->execute('register');
+                        ->execute('index');
 
         $this->assertTrue($result->isOK());
     }
