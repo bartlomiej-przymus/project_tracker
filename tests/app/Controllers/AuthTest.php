@@ -1,8 +1,17 @@
 <?php namespace App\Controllers;
 
 use CodeIgniter\Test\CIDatabaseTestCase;
+use CodeIgniter\Test\ControllerTester;
 
-class TestAuth extends \CodeIgniter\Test\CIDatabaseTestCase
+class AuthTest extends CIDatabaseTestCase
 {
-    //Tests will go here
+    use ControllerTester;
+
+    public function testIndex()
+    {
+        $result = $this->controller(\App\Controllers\Auth::class)
+                        ->execute('register');
+
+        $this->assertTrue($result->isOK());
+    }
 }

@@ -1,6 +1,8 @@
 <?php
 
-class HealthTest extends \CodeIgniter\Test\CIUnitTestCase
+use CodeIgniter\Test\CIUnitTestCase;
+
+class HealthTest extends CIUnitTestCase
 {
 	public function setUp(): void
 	{
