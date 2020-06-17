@@ -16,7 +16,7 @@ class DatabaseTest extends CIDatabaseTestCase
     }
 
     /**
-     * Test to check if database exists and connection is ok
+     * Test to check if database exists and connection is ok to do
      */
     public function testDatabase()
     {
