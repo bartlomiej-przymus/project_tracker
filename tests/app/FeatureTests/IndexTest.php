@@ -16,7 +16,7 @@ class TestIndex extends FeatureTestCase
 
     public function testIfIndexDisplaysLoginPage()
     {
-        $result = $this->get('/');
+        $result = $this->call('get', site_url());
 
         $result->assertContains('Please sign in');
     }
